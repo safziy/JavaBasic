@@ -8,10 +8,10 @@ public class Tables implements Constants {
     /**
      * Define mnemocodes table.
      */
-  static  Hashtable mnemocodes = new Hashtable(301, 0.5f);
+static  Hashtable<String, Integer> mnemocodes = new Hashtable<String, Integer>(301, 0.5f);
   static  String opcExtNamesTab[]=new String[128];
   static  String opcPrivExtNamesTab[]=new String[128];
-  static  void defineNonPriv(int opc, String mnem) {
+static  void defineNonPriv(int opc, String mnem) {
         mnemocodes.put(opcExtNamesTab[opc]=mnem, new Integer(opc_nonpriv*256+opc));
   }
   static  void definePriv(int opc, String mnem) {
@@ -163,7 +163,7 @@ public class Tables implements Constants {
     /**
      * Initialized keyword and token Hashtables
      */
-  static Vector keywordNames = new Vector(40);
+  static Vector<String> keywordNames = new Vector<String>(40);
   private static void defineKeywordName(String id, int token) {
 
         if (token>=keywordNames.size()) {
@@ -189,7 +189,7 @@ public class Tables implements Constants {
         defineKeywordName("RBRACE", RBRACE);
   }
 
-  static Hashtable keywords = new Hashtable(40);
+  static Hashtable<String, Integer> keywords = new Hashtable<String, Integer>(40);
   public static int keyword(String idValue) {
         Integer Val=(Integer)(keywords.get(idValue));
         if (Val == null) return IDENT;
@@ -247,8 +247,8 @@ public class Tables implements Constants {
    /**
      * Define tag table.
      */
-  private static Vector tagNames = new Vector(10);
-  private static Hashtable Tags = new Hashtable(10);
+  private static Vector<String> tagNames = new Vector<String>(10);
+  private static Hashtable<String, Integer> Tags = new Hashtable<String, Integer>(10);
   static {
         defineTag("Asciz",CONSTANT_UTF8);
         defineTag("int",CONSTANT_INTEGER);
@@ -282,8 +282,8 @@ public class Tables implements Constants {
    /**
      * Define type table. These types used in "newarray" instruction only.
      */
-  private static Vector typeNames = new Vector(10);
-  private static Hashtable Types = new Hashtable(10);
+  private static Vector<String> typeNames = new Vector<String>(10);
+  private static Hashtable<String, Integer> Types = new Hashtable<String, Integer>(10);
   static {
         defineType("int",T_INT);
         defineType("long",T_LONG);
@@ -316,8 +316,8 @@ public class Tables implements Constants {
      * Define MapTypes table.
      * These constants used in stackmap tables only.
      */
-  private static Vector mapTypeNames = new Vector(10);
-  private static Hashtable MapTypes = new Hashtable(10);
+  private static Vector<String> mapTypeNames = new Vector<String>(10);
+  private static Hashtable<String, Integer> MapTypes = new Hashtable<String, Integer>(10);
   static {
         defineMapType("bogus",             ITEM_Bogus);
         defineMapType("int",               ITEM_Integer);
